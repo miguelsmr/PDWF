@@ -8,8 +8,8 @@ from app.schemas import ProjectCreate, ProjectRead
 router = APIRouter(prefix="/projects", tags=["projects"])
 
 
-# POST temporal, igual que el de tareas, devuelve un proyecto simulado
-@router.post("", response_model=ProjectRead, status_code=201, summary="Crear un proyecto")
+# POST temporal: igual que el de tareas, devuelve un proyecto simulado
+@router.post("", response_model=ProjectRead, status_code=201)
 def crear_proyecto(project: ProjectCreate):
     return ProjectRead(
         id=1,

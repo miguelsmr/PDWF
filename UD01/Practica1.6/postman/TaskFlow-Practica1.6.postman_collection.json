@@ -1,0 +1,384 @@
+{
+  "info": {
+    "_postman_id": "2362d95d-4338-4811-9bb1-8d368b065446",
+    "name": "TaskFlow - Práctica 1.6 CRUD",
+    "description": "Las 15 peticiones del CRUD de tasks, projects y categories. Ejecutar en orden con la base de datos vacía.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58753343",
+    "_collection_link": "https://go.postman.co/collection/58753343-2362d95d-4338-4811-9bb1-8d368b065446?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "01 POST /projects - Crear proyecto",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Rediseño web\",\n  \"description\": \"Cambiar el diseño de la web\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/projects",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "projects"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "02 GET /projects - Listar proyectos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/projects",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "projects"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "03 PUT /projects/{id} - Editar proyecto",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Rediseño web 2026\",\n  \"description\": \"Nuevo diseño de la web\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/projects/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "projects",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "04 POST /categories - Crear categoría",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Urgente\",\n  \"color\": \"#FF0000\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/categories",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "categories"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "05 GET /categories - Listar categorías",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/categories",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "categories"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "06 PUT /categories/{id} - Editar categoría",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Muy urgente\",\n  \"color\": \"#CC0000\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/categories/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "categories",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "07 POST /tasks - Crear tarea",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Hacer la práctica 1.6\",\n  \"description\": \"CRUD completo\",\n  \"project_id\": 1,\n  \"category_id\": 1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/tasks",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "tasks"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "08 GET /tasks - Listar tareas (filtros y paginación)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/tasks?project_id=1&completed=false&skip=0&limit=10",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "tasks"
+          ],
+          "query": [
+            {
+              "key": "project_id",
+              "value": "1"
+            },
+            {
+              "key": "completed",
+              "value": "false"
+            },
+            {
+              "key": "skip",
+              "value": "0"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "09 GET /tasks/{id} - Detalle de tarea",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/tasks/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "tasks",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "10 PUT /tasks/{id} - Editar tarea",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Hacer la práctica 1.6\",\n  \"description\": \"CRUD completo y probado\",\n  \"project_id\": 1,\n  \"category_id\": 1,\n  \"completed\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/tasks/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "tasks",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "11 GET /projects/{id} - Detalle de proyecto con sus tareas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/projects/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "projects",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "12 GET /categories/{id} - Detalle de categoría con sus tareas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/categories/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "categories",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "13 DELETE /tasks/{id} - Eliminar tarea",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/tasks/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "tasks",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "14 DELETE /categories/{id} - Eliminar categoría",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/categories/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "categories",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "15 DELETE /projects/{id} - Eliminar proyecto",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/projects/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "projects",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    }
+  ]
+}
